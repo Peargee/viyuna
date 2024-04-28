@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-image: url(coding-16.jpg);
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1243705b;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+        h1, h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            background-color: #388e3c; /* Darker green for team section */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            margin-right: 10px;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+        #team-details {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran Kompetisi Koding</h1>
+        <h2>Data Diri</h2>
+        <form>
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required>
+
+            <label for="email">Alamat Email:</label>
+            <input type="email" id="email" name="email" placeholder="Alamat Email" required>
+
+            <label for="tlp">No.Telp:</label>
+            <input type="text" id="tlp" name="tlp" placeholder="No.Telp" required>
+
+            <div class="radio-group">
+              <label for="opsi">Jenis Kelamin:</label>
+              <label for="Laki-laki">
+                  <input type="radio" id="kelamin" name="opsi" value="Laki-laki" required onchange="showTeamDetails(true)">
+                  Laki-laki
+              </label>
+              <label for="Perempuan">
+                  <input type="radio" id="Perempuan" name="opsi" value="Perempuan" required onchange="showTeamDetails(false)">
+                  Perempuan
+              </label>
+          </div>
+
+            <label for="rumah">Alamat Rumah:</label>
+            <input type="text" id="rumah" name="rumah" placeholder="Alamat Rumah" required>
+
+            <label for="univ">Universitas/Perguruan Tinggi:</label>
+            <input type="text" id="univ" name="univ" placeholder="Universitas/Perguruan Tinggi" required>
+
+            <label for="jurusan">Jurusan Studi:</label>
+            <input type="text" id="jurusan" name="jurusan" placeholder="Jurusan Studi" required>
+
+            <label for="tgl">Tanggal Lahir:</label>
+            <input type="date" id="tgl" name="tgl" placeholder="Tanggal Lahir" required>
+
+            <label for="pengalaman">Pengalaman koding sebelumnya:</label>
+            <textarea id="pengalaman" cols="31" rows="5" placeholder="Pengalaman koding sebelumnya" required></textarea>
+
+            <div class="radio-group">
+                <label for="opsi">Tim atau Individu:</label>
+                <label for="team">
+                    <input type="radio" id="team" name="opsi" value="Team" required onchange="showTeamDetails(true)">
+                    Tim
+                </label>
+                <label for="solo">
+                    <input type="radio" id="solo" name="opsi" value="Solo" required onchange="showTeamDetails(false)">
+                    Individu
+                </label>
+            </div>
+
+            <div id="team-details">
+                <h2>Data Anggota Tim</h2>
+                <label for="member1">Nama Anggota 1:</label>
+                <input type="text" id="member1" name="member1" placeholder="Nama Anggota 1">
+
+                <label for="member2">Nama Anggota 2:</label>
+                <input type="text" id="member2" name="member2" placeholder="Nama Anggota 2">
+            </div>
+
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <script>
+        function showTeamDetails(isTeam) {
+            document.getElementById('team-details').style.display = isTeam ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
